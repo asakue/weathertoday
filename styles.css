@@ -14,7 +14,7 @@ body {
     justify-content: center;
     align-items: center;
     padding: 20px;
-    overflow: hidden; /* Запрет на прокрутку */
+    overflow-x: hidden; /* Запрет на горизонтальную прокрутку */
 }
 
 /* Основной контейнер */
@@ -26,7 +26,6 @@ body {
     width: 100%;
     max-width: 470px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    overflow: hidden; /* Запрет на прокрутку внутри контейнера */
 }
 
 /* Стили для поисковой секции */
@@ -270,35 +269,33 @@ body {
 
 @media (max-width: 480px) {
     body {
-        padding: 10px; /* Уменьшаем отступы */
+        padding: 10px;
     }
 
     .container {
         padding: 15px;
-        max-height: 100vh; /* Ограничиваем высоту контейнера */
-        overflow: hidden; /* Запрет на прокрутку */
     }
 
     .search-container {
-        flex-direction: column; /* Вертикальное расположение */
+        flex-direction: row; /* Оставляем горизонтальное расположение */
         gap: 10px;
     }
 
     #input-box {
-        width: 100%; /* Ширина на всю доступную ширину */
+        width: calc(100% - 60px); /* Ширина с учётом кнопки */
         font-size: 16px;
         height: 45px;
         padding: 10px 15px;
     }
 
     #search-button {
-        width: 100%; /* Ширина на всю доступную ширину */
-        height: 45px;
-        border-radius: 25px; /* Закругляем углы */
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
     }
 
     .weather-info {
-        grid-template-columns: 1fr; /* Один столбец на мобильных */
+        grid-template-columns: 1fr 1fr; /* Два столбца для мобильных */
         gap: 15px;
     }
 
@@ -355,5 +352,6 @@ body {
         color: initial;
     }
 }
+
 
 
