@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Weather forecast application with real-time updates">
-    <meta name="keywords" content="weather, forecast, temperature, climate">
-    <title>WeatherTщday</title>
+    <meta name="description" content="Приложение для прогноза погоды с обновлениями в реальном времени">
+    <meta name="keywords" content="погода, прогноз, температура, климат">
+    <meta name="author" content="Ваше имя или название проекта">
+    <title>WeatherToday v0.0.2</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -18,17 +19,19 @@
             <input 
                 type="text" 
                 id="input-box" 
-                placeholder="Enter city name..." 
+                placeholder="Введите название города..." 
                 autocomplete="off"
-                aria-label="Search city"
+                aria-label="Поиск города"
             >
-            <button id="search-button" aria-label="Search">
+            <button id="search-button" aria-label="Поиск">
                 <i class="fas fa-search"></i>
             </button>
         </div>
+
         <div class="error-message" role="alert" style="display: none;">
-            <p>City not found. Please try again.</p>
+            <p>Город не найден. Пожалуйста, попробуйте ещё раз.</p>
         </div>
+
         <div class="weather-body" role="main">
             <div class="location-details">
                 <h1 class="city" id="city">-</h1>
@@ -36,7 +39,7 @@
             </div>
             <div class="weather-details">
                 <div class="temp-container">
-                    <img id="weather-icon" alt="Weather condition" src="">
+                    <img id="weather-icon" alt="Состояние погоды" src="">
                     <div class="temperature" id="temp">-</div>
                     <div class="weather" id="weather">-</div>
                 </div>
@@ -46,27 +49,39 @@
                 <div class="weather-info">
                     <div class="info-item">
                         <i class="fas fa-tint" aria-hidden="true"></i>
-                        <span>Humidity</span>
+                        <span>Влажность</span>
                         <p id="humidity">-</p>
                     </div>
                     <div class="info-item">
                         <i class="fas fa-wind" aria-hidden="true"></i>
-                        <span>Wind Speed</span>
+                        <span>Скорость ветра</span>
                         <p id="wind-speed">-</p>
                     </div>
                     <div class="info-item">
                         <i class="fas fa-compress-arrows-alt" aria-hidden="true"></i>
-                        <span>Pressure</span>
+                        <span>Давление</span>
                         <p id="pressure">-</p>
                     </div>
                 </div>
             </div>
         </div>
+
         <div class="loading-screen" style="display: none;">
             <div class="spinner"></div>
-            <p>Loading weather information...</p>
+            <p>Загрузка информации о погоде...</p>
         </div>
+
+        <script src="script.js" defer></script>
     </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            
+        </div>
+    </footer>
+</body>
+</html>
+
     <script src="script.js" defer></script>
 </body>
 </html>
