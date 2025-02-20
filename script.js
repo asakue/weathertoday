@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cityList = document.getElementById('cityList');
     const weatherInfo = document.getElementById('weatherInfo');
 
-    // Обработчик клика на кнопку поиска
+    // тык тык
     searchBtn.addEventListener('click', () => {
         const cityName = cityInput.value.trim();
         if (cityName) {
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Функция для поиска городов
+    // искать тбя
     async function searchCities(cityName) {
         const geocodingUrl = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(cityName)}&count=5&language=ru`;
 
@@ -36,15 +36,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Функция для отображения списка городов
+    // город короче тык тык показать
     function displayCityList(cities) {
-        cityList.innerHTML = ''; // Очищаем список
+        cityList.innerHTML = ''; 
         cities.forEach(city => {
             const cityElement = document.createElement('div');
             cityElement.textContent = `${city.name}, ${city.admin1 || ''}, ${city.country}`;
             cityElement.classList.add('city-item');
 
-            // Обработчик клика на город
+            // Обработчик 
             cityElement.addEventListener('click', () => {
                 getWeather(city.latitude, city.longitude);
                 cityList.innerHTML = ''; // Очищаем список после выбора
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Функция для получения погоды
+    // блять я не ебу уже что это но это чтото
     async function getWeather(latitude, longitude) {
         const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m&forecast_days=1`;
 
@@ -76,7 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Функция для отображения погоды
     function displayWeather(times, temperatures) {
         let weatherHTML = '<h2>Прогноз погоды на сегодня</h2>';
         weatherHTML += '<table>';
@@ -91,3 +90,5 @@ document.addEventListener('DOMContentLoaded', () => {
         weatherInfo.innerHTML = weatherHTML;
     }
 });
+//а нахуя ты сюда зашел долбоёб??????
+
