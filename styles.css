@@ -1,4 +1,4 @@
-/* Основные стили */
+/* Сброс стилей и базовые настройки */
 * {
     margin: 0;
     padding: 0;
@@ -6,6 +6,7 @@
     font-family: 'Poppins', sans-serif;
 }
 
+/* Основные стили для body */
 body {
     background: linear-gradient(135deg, #00feba, #5b548a);
     min-height: 100vh;
@@ -26,7 +27,7 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Поисковая секция */
+/* Стили для поисковой секции */
 .search-container {
     position: relative;
     width: 100%;
@@ -75,7 +76,7 @@ body {
     font-size: 20px;
 }
 
-/* Выпадающий список городов */
+/* Стили для выпадающего списка городов */
 .suggestions {
     position: absolute;
     top: 60px;
@@ -155,7 +156,7 @@ body {
     margin-bottom: 30px;
 }
 
-/* Дополнительная информация */
+/* Дополнительная информация о погоде */
 .weather-info {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -246,7 +247,7 @@ body {
     }
 }
 
-/* Стили скроллбара */
+/* Стили для скроллбара */
 .suggestions::-webkit-scrollbar {
     width: 8px;
 }
@@ -265,7 +266,7 @@ body {
     background: #555;
 }
 
-/* Медиа-запросы для адаптивности */
+/* Адаптивность для планшетов */
 @media (max-width: 768px) {
     .container {
         padding: 20px;
@@ -289,6 +290,7 @@ body {
     }
 }
 
+/* Адаптивность для мобильных устройств */
 @media (max-width: 480px) {
     .container {
         padding: 15px;
@@ -331,7 +333,7 @@ body {
     display: none;
 }
 
-/* Улучшения для доступности */
+/* Оптимизация для пользователей с ограниченными возможностями */
 @media (prefers-reduced-motion: reduce) {
     * {
         animation: none !important;
@@ -362,3 +364,4 @@ body {
         color: initial;
     }
 }
+
