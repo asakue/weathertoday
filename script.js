@@ -1,8 +1,10 @@
+// Конфигурация API
 const weatherApi = {
     key: "9d7cde1f6d07ec55650544be1631307e",
     baseUrl: "https://api.openweathermap.org/data/2.5/weather"
 };
 
+// Получение элементов DOM
 const searchInput = document.getElementById('input-box');
 const searchButton = document.getElementById('search-button');
 const weatherIcon = document.getElementById('weather-icon');
@@ -17,17 +19,20 @@ const pressureElement = document.getElementById('pressure');
 const weatherBody = document.querySelector('.weather-body');
 const errorMessage = document.querySelector('.error-message');
 
+
 searchButton.addEventListener('click', () => {
     if (searchInput.value.trim()) {
         getWeatherReport(searchInput.value);
     }
 });
 
+
 searchInput.addEventListener('keypress', (event) => {
     if (event.key === 'Enter' && searchInput.value.trim()) {
         getWeatherReport(searchInput.value);
     }
 });
+
 
 async function getWeatherReport(city) {
     try {
@@ -44,7 +49,7 @@ async function getWeatherReport(city) {
             hideError();
         }
     } catch (error) {
-        console.error('Error fetching weather:', error);
+        console.error('Ошибка при получении данных о погоде:', error);
         showError();
     } finally {
         hideLoading();
@@ -59,19 +64,20 @@ function showWeatherReport(weather) {
     weatherIcon.src = `https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`;
     minMaxElement.innerHTML = `${Math.round(weather.main.temp_min)}&deg;C (min) / ${Math.round(weather.main.temp_max)}&deg;C (max)`;
     humidityElement.textContent = `${weather.main.humidity}%`;
-    windSpeedElement.textContent = `${weather.wind.speed} m/s`;
-    pressureElement.textContent = `${weather.main.pressure} hPa`;
+    windSpeedElement.textContent = `${weather.wind.speed} м/с`;
+    pressureElement.textContent = `${weather.main.pressure} гПа`;
     showWeatherBody();
 }
 
+
 function getFormattedDate() {
     const months = [
-        'January', 'February', 'March', 'April', 'May', 'June',
-        'July', 'August', 'September', 'October', 'November', 'December'
+        'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь',
+        'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'
     ];
     const days = [
-        'Sunday', 'Monday', 'Tuesday', 'Wednesday',
-        'Thursday', 'Friday', 'Saturday'
+        'Воскресенье', 'Понедельник', 'Вторник', 'Среда',
+        'Четверг', 'Пятница', 'Суббота'
     ];
 
     const now = new Date();
@@ -87,30 +93,35 @@ function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+
 function showLoading() {
     weatherBody.style.display = 'none';
     errorMessage.style.display = 'none';
 }
 
-function hideLoading() {
 
+function hideLoading() {
+    
 }
+
 
 function showError() {
     errorMessage.style.display = 'block';
     weatherBody.style.display = 'none';
 }
 
+// Скрыть ошибку
 function hideError() {
     errorMessage.style.display = 'none';
 }
+
 
 function showWeatherBody() {
     weatherBody.style.display = 'block';
     weatherBody.classList.add('active');
 }
 
-// ХУЛИ ТЫ ТУТ СМОТРИШЬ
+
 document.addEventListener('DOMContentLoaded', () => {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
@@ -118,15 +129,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 getWeatherByCoords(position.coords.latitude, position.coords.longitude);
             },
             () => {
-                getWeatherReport('London'); 
+                getWeatherReport('Москва');
             }
         );
     } else {
-        getWeatherReport('London');
+        getWeatherReport('Москва');
     }
 });
 
-// Получение погоды по координатам
 async function getWeatherByCoords(lat, lon) {
     try {
         showLoading();
@@ -137,7 +147,7 @@ async function getWeatherByCoords(lat, lon) {
         showWeatherReport(weatherData);
         hideError();
     } catch (error) {
-        console.error('Error fetching weather by coordinates:', error);
+        console.error('Ошибка при получении погоды по координатам:', error);
         showError();
     } finally {
         hideLoading();
@@ -145,7 +155,7 @@ async function getWeatherByCoords(lat, lon) {
 }
 
 weatherIcon.onerror = function() {
-    this.src = 'https://openweathermap.org/img/wn/02d@2x.png'; 
+    this.src = 'https://openweathermap.org/img/wn/02d@2x.png';
 };
 
 searchButton.addEventListener('mousedown', () => {
@@ -156,15 +166,9 @@ searchButton.addEventListener('mouseup', () => {
     searchButton.style.transform = 'scale(1)';
 });
 
-// Предотвращение отправки формы
 searchInput.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
         event.preventDefault();
     }
 });
 
-// Очистка поля ввода после успешного поиска
-function clearSearchInput() {
-    searchInput.value = '';
-}
-//закрой нахуй этот код
