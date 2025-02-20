@@ -1,39 +1,73 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🌤️ Прогноз погоды</title>
+    <meta name="description" content="Weather forecast application with real-time updates">
+    <meta name="keywords" content="weather, forecast, temperature, climate">
+    <title>Weather Forecast</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <h1>🌤️ WEATHER TODAY</h1>
-            <p>Получите актуальный прогноз погоды в любом городе мира.</p>
-        </header>
-
+    <main class="container">
         <div class="search-container">
-            <input type="text" id="cityInput" placeholder="Введите город..." class="search-input">
-            <button id="searchBtn" class="search-btn">
-                <i class="fas fa-search"></i> Поиск
+            <input 
+                type="text" 
+                id="input-box" 
+                placeholder="Enter city name..." 
+                autocomplete="off"
+                aria-label="Search city"
+            >
+            <button id="search-button" aria-label="Search">
+                <i class="fas fa-search"></i>
             </button>
         </div>
-
-        <div id="cityList" class="city-list"></div>
-
-        <div id="weatherInfo" class="weather-info">
-            <p>Начните с поиска города, чтобы увидеть прогноз погоды.</p>
+        <div class="error-message" role="alert" style="display: none;">
+            <p>City not found. Please try again.</p>
         </div>
-
-        <footer class="footer">
-            <p>Прогноз погоды v0.0.1</p>
-        </footer>
-    </div>
-
-    <script src="script.js"></script>
+        <div class="weather-body" role="main">
+            <div class="location-details">
+                <h1 class="city" id="city">-</h1>
+                <div class="date" id="date">-</div>
+            </div>
+            <div class="weather-details">
+                <div class="temp-container">
+                    <img id="weather-icon" alt="Weather condition" src="">
+                    <div class="temperature" id="temp">-</div>
+                    <div class="weather" id="weather">-</div>
+                </div>
+                <div class="temp-range">
+                    <span id="min-max">-</span>
+                </div>
+                <div class="weather-info">
+                    <div class="info-item">
+                        <i class="fas fa-tint" aria-hidden="true"></i>
+                        <span>Humidity</span>
+                        <p id="humidity">-</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-wind" aria-hidden="true"></i>
+                        <span>Wind Speed</span>
+                        <p id="wind-speed">-</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-compress-arrows-alt" aria-hidden="true"></i>
+                        <span>Pressure</span>
+                        <p id="pressure">-</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="loading-screen" style="display: none;">
+            <div class="spinner"></div>
+            <p>Loading weather information...</p>
+        </div>
+    </main>
+    <script src="script.js" defer></script>
 </body>
 </html>
 
