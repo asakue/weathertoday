@@ -14,6 +14,7 @@ body {
     justify-content: center;
     align-items: center;
     padding: 20px;
+    overflow: hidden; /* Запрет на прокрутку */
 }
 
 /* Основной контейнер */
@@ -25,6 +26,7 @@ body {
     width: 100%;
     max-width: 470px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden; /* Запрет на прокрутку внутри контейнера */
 }
 
 /* Стили для поисковой секции */
@@ -74,30 +76,6 @@ body {
 
 #search-button i {
     font-size: 20px;
-}
-
-/* Стили для выпадающего списка городов */
-.suggestions {
-    position: absolute;
-    top: 60px;
-    left: 0;
-    right: 60px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    max-height: 200px;
-    overflow-y: auto;
-    z-index: 1000;
-}
-
-.suggestion-item {
-    padding: 12px 20px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.suggestion-item:hover {
-    background-color: #ebfffc;
 }
 
 /* Основная информация о погоде */
@@ -266,7 +244,7 @@ body {
     background: #555;
 }
 
-/* Адаптивность для планшетов */
+/* Медиа-запросы для адаптивности */
 @media (max-width: 768px) {
     .container {
         padding: 20px;
@@ -290,14 +268,37 @@ body {
     }
 }
 
-/* Адаптивность для мобильных устройств */
 @media (max-width: 480px) {
+    body {
+        padding: 10px; /* Уменьшаем отступы */
+    }
+
     .container {
         padding: 15px;
+        max-height: 100vh; /* Ограничиваем высоту контейнера */
+        overflow: hidden; /* Запрет на прокрутку */
+    }
+
+    .search-container {
+        flex-direction: column; /* Вертикальное расположение */
+        gap: 10px;
+    }
+
+    #input-box {
+        width: 100%; /* Ширина на всю доступную ширину */
+        font-size: 16px;
+        height: 45px;
+        padding: 10px 15px;
+    }
+
+    #search-button {
+        width: 100%; /* Ширина на всю доступную ширину */
+        height: 45px;
+        border-radius: 25px; /* Закругляем углы */
     }
 
     .weather-info {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Один столбец на мобильных */
         gap: 15px;
     }
 
@@ -312,16 +313,6 @@ body {
     .temperature {
         font-size: 48px;
     }
-
-    #input-box {
-        font-size: 16px;
-        height: 45px;
-    }
-
-    #search-button {
-        width: 45px;
-        height: 45px;
-    }
 }
 
 /* Состояния элементов */
@@ -333,7 +324,7 @@ body {
     display: none;
 }
 
-/* Оптимизация для пользователей с ограниченными возможностями */
+/* Улучшения для доступности */
 @media (prefers-reduced-motion: reduce) {
     * {
         animation: none !important;
@@ -364,4 +355,5 @@ body {
         color: initial;
     }
 }
+
 
