@@ -353,6 +353,7 @@ body {
     }
 }
 /* Стили для кнопки переключения прогноза */
+/* Стили для кнопки "Прогноз на неделю" */
 #toggle-forecast-button {
     width: 100%;
     padding: 15px;
@@ -444,7 +445,16 @@ body {
         align-items: flex-start;
         gap: 10px;
     }
+
+    .forecast-date {
+        font-size: 14px;
+    }
+
+    .forecast-temp {
+        font-size: 14px;
+    }
 }
+
 
 
 
