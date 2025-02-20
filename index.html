@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Приложение для прогноза погоды с обновлениями в реальном времени">
     <meta name="keywords" content="погода, прогноз, температура, климат">
-    <meta name="author" content="Ваше имя или название проекта">
-    <title>WeatherToday v0.0.3 тест</title>
+    <title>Прогноз погоды</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -27,11 +26,9 @@
                 <i class="fas fa-search"></i>
             </button>
         </div>
-
         <div class="error-message" role="alert" style="display: none;">
             <p>Город не найден. Пожалуйста, попробуйте ещё раз.</p>
         </div>
-
         <div class="weather-body" role="main">
             <div class="location-details">
                 <h1 class="city" id="city">-</h1>
@@ -39,7 +36,7 @@
             </div>
             <div class="weather-details">
                 <div class="temp-container">
-                    <img id="weather-icon" alt="Состояние погоды" src="">
+                    <img id="weather-icon" alt="Иконка погоды" src="">
                     <div class="temperature" id="temp">-</div>
                     <div class="weather" id="weather">-</div>
                 </div>
@@ -64,24 +61,21 @@
                     </div>
                 </div>
             </div>
+            <button id="toggle-forecast-button" type="button" aria-label="Показать прогноз на неделю">
+                Прогноз на неделю <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="week-forecast" id="week-forecast" style="display: none;">
+                <h2>Прогноз на неделю</h2>
+                <div class="forecast-list" id="forecast-list">
+                    <!-- Прогноз на неделю будет вставлен сюда -->
+                </div>
+            </div>
         </div>
-
         <div class="loading-screen" style="display: none;">
             <div class="spinner"></div>
             <p>Загрузка информации о погоде...</p>
         </div>
-
-        <script src="script.js" defer></script>
     </main>
-
-    <footer class="footer">
-        <div class="footer-content">
-            
-        </div>
-    </footer>
-</body>
-</html>
-
     <script src="script.js" defer></script>
 </body>
 </html>
