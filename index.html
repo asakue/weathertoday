@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌤️ Прогноз погоды</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🌤️ WEATHER TODAY</h1>
+            <p>Получите актуальный прогноз погоды в любом городе мира.</p>
+        </header>
+
+        <div class="search-container">
+            <input type="text" id="cityInput" placeholder="Введите город..." class="search-input">
+            <button id="searchBtn" class="search-btn">
+                <i class="fas fa-search"></i> Поиск
+            </button>
+        </div>
+
+        <div id="cityList" class="city-list"></div>
+
+        <div id="weatherInfo" class="weather-info">
+            <p>Начните с поиска города, чтобы увидеть прогноз погоды.</p>
+        </div>
+
+        <footer class="footer">
+            <p>Прогноз погоды v0.0.1</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
