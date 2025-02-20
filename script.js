@@ -1,10 +1,7 @@
-// Конфигурация API
 const weatherApi = {
     key: "9d7cde1f6d07ec55650544be1631307e",
     baseUrl: "https://api.openweathermap.org/data/2.5/weather"
 };
-
-// Получение элементов DOM
 const searchInput = document.getElementById('input-box');
 const searchButton = document.getElementById('search-button');
 const weatherIcon = document.getElementById('weather-icon');
@@ -18,22 +15,16 @@ const windSpeedElement = document.getElementById('wind-speed');
 const pressureElement = document.getElementById('pressure');
 const weatherBody = document.querySelector('.weather-body');
 const errorMessage = document.querySelector('.error-message');
-
-
 searchButton.addEventListener('click', () => {
     if (searchInput.value.trim()) {
         getWeatherReport(searchInput.value);
     }
 });
-
-
 searchInput.addEventListener('keypress', (event) => {
     if (event.key === 'Enter' && searchInput.value.trim()) {
         getWeatherReport(searchInput.value);
     }
 });
-
-
 async function getWeatherReport(city) {
     try {
         showLoading();
@@ -55,21 +46,33 @@ async function getWeatherReport(city) {
         hideLoading();
     }
 }
-
 function showWeatherReport(weather) {
     cityElement.textContent = `${weather.name}, ${weather.sys.country}`;
     dateElement.textContent = getFormattedDate();
     tempElement.innerHTML = `${Math.round(weather.main.temp)}&deg;C`;
-    weatherElement.textContent = capitalizeFirstLetter(weather.weather[0].description);
+    weatherElement.textContent = translateWeatherDescription(weather.weather[0].description);
     weatherIcon.src = `https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`;
-    minMaxElement.innerHTML = `${Math.round(weather.main.temp_min)}&deg;C (min) / ${Math.round(weather.main.temp_max)}&deg;C (max)`;
+    minMaxElement.innerHTML = `${Math.round(weather.main.temp_min)}&deg;C (мин) / ${Math.round(weather.main.temp_max)}&deg;C (макс)`;
     humidityElement.textContent = `${weather.main.humidity}%`;
     windSpeedElement.textContent = `${weather.wind.speed} м/с`;
     pressureElement.textContent = `${weather.main.pressure} гПа`;
     showWeatherBody();
 }
-
-
+function translateWeatherDescription(description) {
+    const translations = {
+        'clear sky': 'ясно',
+        'few clouds': 'немного облаков',
+        'scattered clouds': 'рассеянные облака',
+        'broken clouds': 'облачно с прояснениями',
+        'shower rain': 'ливень',
+        'rain': 'дождь',
+        'thunderstorm': 'гроза',
+        'snow': 'снег',
+        'mist': 'туман',
+        'overcast clouds': 'пасмурно'
+    };
+    return translations[description] || description;
+}
 function getFormattedDate() {
     const months = [
         'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь',
@@ -88,40 +91,26 @@ function getFormattedDate() {
 
     return `${date} ${month} (${day}), ${year}`;
 }
-
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
-
-
 function showLoading() {
     weatherBody.style.display = 'none';
     errorMessage.style.display = 'none';
 }
-
-
 function hideLoading() {
-    
 }
-
-
 function showError() {
     errorMessage.style.display = 'block';
     weatherBody.style.display = 'none';
 }
-
-// Скрыть ошибку
 function hideError() {
     errorMessage.style.display = 'none';
 }
-
-
 function showWeatherBody() {
     weatherBody.style.display = 'block';
     weatherBody.classList.add('active');
 }
-
-
 document.addEventListener('DOMContentLoaded', () => {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
@@ -129,14 +118,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 getWeatherByCoords(position.coords.latitude, position.coords.longitude);
             },
             () => {
-                getWeatherReport('Москва');
+                getWeatherReport('Москва'); // Город по умолчанию
             }
         );
     } else {
         getWeatherReport('Москва');
     }
 });
-
 async function getWeatherByCoords(lat, lon) {
     try {
         showLoading();
@@ -152,23 +140,21 @@ async function getWeatherByCoords(lat, lon) {
     } finally {
         hideLoading();
     }
-}
-
+}  //уйди отсюда.лазит он в коде
+// Запасная иконка при ошибке загрузки
 weatherIcon.onerror = function() {
     this.src = 'https://openweathermap.org/img/wn/02d@2x.png';
 };
-
 searchButton.addEventListener('mousedown', () => {
     searchButton.style.transform = 'scale(0.95)';
 });
-
 searchButton.addEventListener('mouseup', () => {
     searchButton.style.transform = 'scale(1)';
 });
-
 searchInput.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
         event.preventDefault();
     }
 });
+//опа гамгнат стайл
 
