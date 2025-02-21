@@ -5,16 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Приложение для прогноза погоды с обновлениями в реальном времени">
     <meta name="keywords" content="погода, прогноз, температура, климат">
-    <title>Прогноз погоды 0.0.4 ТЕСТ</title>
+    <title>Прогноз погоды 0.0.5 ТЕСТ</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style/reset.css">
+    <link rel="stylesheet" href="style/base.css">
+    <link rel="stylesheet" href="style/search.css">
+    <link rel="stylesheet" href="style/weather.css">
+    <link rel="stylesheet" href="style/forecast.css">
+    <link rel="stylesheet" href="style/utilities.css">
+    <link rel="stylesheet" href="style/responsive.css">
 </head>
 <body>
     <main class="container">
         <div class="search-container">
+            <label for="input-box" class="visually-hidden">Поиск города</label>
             <input 
                 type="text" 
                 id="input-box" 
@@ -34,9 +41,9 @@
                 <h1 class="city" id="city">-</h1>
                 <div class="date" id="date">-</div>
             </div>
-            <div class="weather-details">
+            <section class="weather-details">
                 <div class="temp-container">
-                    <img id="weather-icon" alt="Иконка погоды" src="">
+                    <img id="weather-icon" alt="Иконка погоды" src="" aria-hidden="true">
                     <div class="temperature" id="temp">-</div>
                     <div class="weather" id="weather">-</div>
                 </div>
@@ -60,23 +67,23 @@
                         <p id="pressure">-</p>
                     </div>
                 </div>
-            </div>
+            </section>
             <button id="toggle-forecast-button" type="button" aria-label="Показать прогноз на неделю">
                 Прогноз на неделю <i class="fas fa-chevron-down"></i>
             </button>
-            <div class="week-forecast" id="week-forecast" style="display: none;">
-                <h2>Прогноз на неделю</h2>
+            <section class="week-forecast" id="week-forecast" style="display: none;" aria-labelledby="week-forecast-heading">
+                <h2 id="week-forecast-heading">Прогноз на неделю</h2>
                 <div class="forecast-list" id="forecast-list">
                     <!-- Прогноз на неделю будет вставлен сюда -->
                 </div>
-            </div>
+            </section>
         </div>
         <div class="loading-screen" style="display: none;">
             <div class="spinner"></div>
             <p>Загрузка информации о погоде...</p>
         </div>
     </main>
-    <script src="script.js" defer></script>
+    <script src="script.js" defer></script>  
 </body>
 </html>
 
