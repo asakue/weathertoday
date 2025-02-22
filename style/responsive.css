@@ -1,0 +1,90 @@
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    .city {
+        font-size: 28px;
+    }
+
+    .temperature {
+        font-size: 52px;
+    }
+
+    .weather {
+        font-size: 20px;
+    }
+
+    #weather-icon {
+        width: 100px;
+        height: 100px;
+    }
+
+    .weather-info {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    .search-container {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    #input-box {
+        width: calc(100% - 60px);
+        font-size: 16px;
+        height: 45px;
+        padding: 10px 15px;
+    }
+
+    #search-button {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+
+    .weather-info {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .info-item {
+        padding: 10px;
+    }
+
+    .city {
+        font-size: 24px;
+    }
+
+    .temperature {
+        font-size: 48px;
+    }
+
+    #toggle-forecast-button {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    .week-forecast h2 {
+        font-size: 20px;
+    }
+
+    .forecast-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .forecast-date, .forecast-temp {
+        font-size: 14px;
+    }
+}

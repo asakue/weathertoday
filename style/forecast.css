@@ -1,0 +1,42 @@
+.week-forecast {
+    margin-top: 20px;
+}
+
+.week-forecast h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.forecast-list {
+    display: grid;
+    gap: 20px;
+}
+
+.forecast-item {
+    background: rgba(235, 255, 252, 0.5);
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.forecast-item:hover {
+    transform: translateY(-5px);
+}
+
+.forecast-date {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+}
+
+.forecast-temp {
+    font-size: 16px;
+    font-weight: 500;
+    color: #666;
+}
