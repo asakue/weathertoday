@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Приложение для прогноза погоды с обновлениями в реальном времени">
     <meta name="keywords" content="погода, прогноз, температура, климат">
-    <title>WeatherToday 1.0.0 </title>
+    <title>WeatherToday 1.0.1 </title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -36,7 +36,7 @@
         <div class="error-message" role="alert" style="display: none;">
             <p>Город не найден. Пожалуйста, попробуйте ещё раз.</p>
         </div>
-        <div class="weather-body" role="main">
+        <div class="weather-body" role="main" aria-live="polite">
             <div class="location-details">
                 <h1 class="city" id="city">-</h1>
                 <div class="date" id="date">-</div>
@@ -69,10 +69,10 @@
                 </div>
             </section>
             <button id="toggle-forecast-button" type="button" aria-label="Показать прогноз на неделю">
-                Прогноз на неделю <i class="fas fa-chevron-down"></i>
+                Прогноз на ближайшие дни <i class="fas fa-chevron-down"></i>
             </button>
             <section class="week-forecast" id="week-forecast" style="display: none;" aria-labelledby="week-forecast-heading">
-                <h2 id="week-forecast-heading">Прогноз на неделю</h2>
+                <h2 id="week-forecast-heading">Прогноз на ближайшие дни</h2>
                 <div class="forecast-list" id="forecast-list">
                     <!-- Прогноз на неделю будет вставлен сюда -->
                 </div>
@@ -86,4 +86,5 @@
     <script src="script.js" defer></script>  
 </body>
 </html>
+
 
